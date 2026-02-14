@@ -5,5 +5,10 @@
     </head>
     <body>
         <h1>Hello World</h1>
+        <ul>
+            {% for item in items %}
+                <li>{{ item.text }} is {{ item.is_done }}</li>
+            {% endfor %}
+        </ul>
     </body>
 </html>

@@ -8,7 +8,7 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
 class Item(BaseModel):
-    text: str # No default means required
+    text: str                   # No default means required
     is_done: bool = False
 
 items = []
@@ -16,7 +16,13 @@ items = []
 # Index Page
 @app.get("/index", response_class=HTMLResponse)
 def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "items": items      # Sends items to html
+        }
+    )
 
 # Shows items list
 @app.get("/")

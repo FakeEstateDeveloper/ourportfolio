@@ -2,3 +2,12 @@ cd project-path
 git add .
 git commit -m "Describe what you changed"
 git push origin main
+
+server {
+    listen 80;
+    server_name your_domain_or_public_ip;
+
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+    }
+}
