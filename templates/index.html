@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My Portfolio Webiste</title>
+        <title>My ToDo List</title>
+        <script src="/static/script.js" defer></script>
     </head>
     <body>
-        <h1>Hello World</h1>
-        <ul>
-            {% for item in items %}
-                <li>{{ item.text }} is {{ item.is_done }}</li>
-            {% endfor %}
-        </ul>
+        <h1>ToDo List</h1>
+        <input type="text" id="todo-input" placeholder="Type a task">
+        <button onclick="AddItem()">Add</button>
+        <h2>Things</h2>
+        <ul id="item-list"></ul>
     </body>
 </html>
