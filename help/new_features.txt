@@ -1,0 +1,20 @@
+BEGINNER
+1. Show total task count
+2. Auto-focus input after submit
+3. Show error for empty input
+4. Disable button while saving
+5. Show loading text while fetching
+
+INTERMEDIATE
+6. Delete button per item
+7. Mark item as completed
+8. Filter (All / Active / Completed)
+9. Edit item text
+10. Sort items by date
+
+ADVANCED
+11. Store tasks in database
+12. Add due dates
+13. Highlight overdue tasks
+14. Add user accounts/login
+15. Deploy app publicly

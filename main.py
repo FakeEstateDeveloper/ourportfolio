@@ -10,7 +10,7 @@ templates = Jinja2Templates(directory="templates")
 
 # Item Model
 class Item(BaseModel):
-    ToDo: str                   # No default means required
+    ToDo: str                                               # No default means required
 
 items = []
 
@@ -20,17 +20,21 @@ def home(request: Request):
     return templates.TemplateResponse(
         "index.html", {
             "request": request,
-            "items": items      # Sends items to html
+            "items": items                                  # Sends items to html
         }
     )
 
-# GET
-# ====
-# Shows all items up to limit
+# Add item to list
+# '/item'
+@app.post("/item")
+def create_item(item: Item):
+    items.append(item)
+
+# Shows all items
 # '/items'
-@app.get("/items", response_model=list[Item])
-def list_items(limit: int=10):
-    return items[0:limit]
+@app.get("/items")
+def list_items():
+    return items
 
 # Get item from list
 # '/items/item_id'
@@ -39,12 +43,3 @@ def get_item(item_id: int) -> Item:
     if item_id < len(items):
         return items[item_id]
     raise HTTPException(status_code=404, detail=f"Item {item_id} was not found")
-
-# POST
-# ====
-# Add item to list
-# '/item'
-@app.post("/item")
-def create_item(item: Item):
-    items.append(item)
-    return items

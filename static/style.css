@@ -1,0 +1,29 @@
+body {
+    display: flex;                      /* Use Flexbox */
+    justify-content: center;            /* Center horizontally */
+    align-items: center;                /* Center vertically */
+    flex-direction: column;             /* Stack items vertically */
+    font-family: Arial, sans-serif;
+    background-color: peachpuff;
+}
+
+#todo-input, button {
+    padding: 3% 6%;
+    font-size: 90%;
+    margin: 1%;
+}
+
+#item-list {
+    margin-top: 1%;
+    padding-left: 0;                    /* Keeps list in the middle */
+    list-style-type: none;              /* Remove bullets */
+}
+
+#item-list li {
+    background-color: snow;
+    padding: 1%;
+    margin-bottom: 5%;
+    width: 300px;
+    text-align: center;
+    border-radius: 10px;            /* Rounded corners */
+}
