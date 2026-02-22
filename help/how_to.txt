@@ -29,3 +29,18 @@ sudo service nginx restart
 [ACTIVATE WEBSITE ON EC2 INSTANCE]
 source venv/bin/activate
 uvicorn main:app --host 0.0.0.0 --port 8000
+
+[BUILD DOCKER]
+Navigate to your project folder first
+    cd ~/your-repo
+One-liner to build & run Docker container
+    docker build -t fastapi-todo . && \
+    docker run -d \
+    --name fastapi-todo-container \
+    -p 80:8000 \
+    -v ~/todo_data:/app \
+    --restart unless-stopped \
+    fastapi-todo
+Stop or start
+    docker stop fastapi-todo-container
+    docker start fastapi-todo-container
